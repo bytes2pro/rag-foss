@@ -2,7 +2,7 @@
 
 RAG stands for Retrieval-Augmented Generation. Here's a breakdown of what it is and how it works:
 
-![](media/ragchat.png)
+![](docs/ragchat.png)
 
 ## What is RAG
 
