@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+pre,
+code {
+  text-wrap: wrap;
+  text-shadow: none;
+  margin: 0 !important;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+h1 {
+  @apply text-3xl;
+}
+h2 {
+  @apply text-2xl;
+}
+h3 {
+  @apply text-xl;
+}
+
+.mdn-anchor > * > a {
+  color: #4229e1 !important;
+}
+.mdn-anchor > * > a:hover {
+  color: #e17629 !important;
+}
+
+@layer base {
+  .font-outline-2 {
+    -webkit-text-stroke: 2px black;
+  }
+  .font-outline-4 {
+    -webkit-text-stroke: 4px black;
+  }
+}

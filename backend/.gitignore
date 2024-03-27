@@ -1,0 +1,7 @@
+__pycache__
+.vscode
+vectorstore/*
+uploads/*
+!uploads/.keep
+!uploads/small
+**/.lancedb
