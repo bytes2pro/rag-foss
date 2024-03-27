@@ -2,6 +2,8 @@
 
 RAG stands for Retrieval-Augmented Generation. Here's a breakdown of what it is and how it works:
 
+![](media/ragchat.png)
+
 ## What is RAG
 
 RAG is a technique used to improve the responses of large language models (LLMs) like GPT-3 and others. It combines the following:
