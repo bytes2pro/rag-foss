@@ -4,6 +4,8 @@ RAG stands for Retrieval-Augmented Generation. Here's a breakdown of what it is 
 
 ![](docs/ragchat.png)
 
+---
+
 ## What is RAG
 
 RAG is a technique used to improve the responses of large language models (LLMs) like GPT-3 and others. It combines the following:
@@ -13,11 +15,15 @@ RAG is a technique used to improve the responses of large language models (LLMs)
 
 RAG bridges the gap by having the retrieval system find relevant information, which is then provided to the language model along with the original query. This helps the language model generate even better responses.
 
+---
+
 ## How Does RAG Work?
 
 -   **User Query**: A user asks a question or gives a prompt.
 -   **Retrieval**: The retrieval system searches a knowledge base (like Wikipedia or a company's internal documents) to locate the most relevant pieces of information.
 -   **Generation**: The language model takes both the original query and the retrieved information as input. It then processes this combined input to create a more informed and accurate response.
+
+---
 
 ## Why use RAG in the first place
 
@@ -25,6 +31,8 @@ RAG bridges the gap by having the retrieval system find relevant information, wh
 -   **Verifiable Answers**: RAG can often provide references or citations to support the generated response, allowing users to fact-check the information.
 -   **Handling "I don't know" Situations**: A RAG model is better at recognizing when the knowledge base doesn't contain a good answer to the question, leading it to respond honestly rather than making something up.
 -   **Up-To-Date Information**: Since it pulls from a knowledge base, a RAG model can access the latest information even if its knowledge from training is old.
+
+---
 
 ## How do I use this app
 
@@ -105,3 +113,20 @@ npm run dev
 ### Using the app
 
 The following video demo will show how to use RAGChat.
+
+![](./docs/rag-demo.mp4)
+
+---
+
+## How is RAG implemented here
+
+-   On the server side we use [`AutoLLM`](https://github.com/safevideo/autollm) for generating the embeddings and OpenAI for querying.
+-   Various FOSS tools provided by `Langchain` and.`Llama-Index` are used for reading and tokenizing the uploaded documents.
+-   These tools are implemented within `AutoLLM`.
+-   These documents are then passed on to rthe embedding model.
+-   We use the `text-embedding-ada-002` model provided by OpenAI to generate the embeddings.
+-   The generated embeddings are stored locally in a [`LanceDB`](https://lancedb.com/) vector database.
+-   The querying model used in `GPT-3.5-Turbo` provided by OpenAI.
+-   When the model is queried, the query is converted to embeddings and the embeddings are then compared to the ones stored in our vector database.
+-   If similar embeddings ar efound, they are passed onto the model along with our original query.
+-   The model uses this data to generate a response.
