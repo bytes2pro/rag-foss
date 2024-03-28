@@ -2,7 +2,7 @@
 
 RAG stands for Retrieval-Augmented Generation. Here's a breakdown of what it is and how it works:
 
-![](docs/ragchat.png)
+![image](docs/ragchat.png)
 
 ---
 
@@ -114,7 +114,7 @@ npm run dev
 
 The following video demo will show how to use RAGChat.
 
-![](./docs/rag-demo.mp4)
+https://github.com/bytes2pro/rag-openai/assets/44979866/fb9ab2fd-32ad-4a80-aee0-d786e1e029fb
 
 ---
 
