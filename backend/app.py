@@ -13,6 +13,12 @@ from utils.utils import sanitize_string
 
 load_dotenv(find_dotenv(filename=".env"))
 
+DOWNLOAD_DIR = "downloads"
+
+if os.path.exists(DOWNLOAD_DIR):
+    shutil.rmtree(DOWNLOAD_DIR)
+os.mkdir(DOWNLOAD_DIR)
+
 app = FastAPI()
 
 # Add CORS middleware to allow all origins
@@ -31,7 +37,7 @@ async def ingest_files(
     files: List[UploadFile] = File(...),
 ):
     try:
-        file_path = f"uploads/{str(uuid.uuid4())}"
+        file_path = f"{DOWNLOAD_DIR}/{str(uuid.uuid4())}"
         if os.path.exists(file_path):
             shutil.rmtree(file_path)
         os.mkdir(file_path)

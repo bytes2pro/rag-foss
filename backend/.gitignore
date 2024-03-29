@@ -5,3 +5,4 @@ uploads/*
 !uploads/.keep
 !uploads/small
 **/.lancedb
+downloads
