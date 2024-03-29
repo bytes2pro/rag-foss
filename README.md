@@ -78,6 +78,7 @@ conda activate rag
 
 ```bash
 python -m pip install -r requirements.txt
+python -m pip install "unstructured[all-docs]"
 ```
 
 -   Start the backend server.

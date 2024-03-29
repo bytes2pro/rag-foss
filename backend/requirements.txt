@@ -3,7 +3,7 @@ langchain-community==0.0.29
 unstructured==0.12.5
 chromadb==0.4.15
 tiktoken==0.5.2
-sentence_transformers==2.6.1
+sentence-transformers==2.6.1
 tqdm==4.66.2
-jq==1.7.0
-"unstructured[all-docs]"
+transformers==4.39.2
+pillow_heif==0.15.0
