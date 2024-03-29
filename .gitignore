@@ -1,3 +1,4 @@
-**.env**
+**.env
 # **/kubernetes/**
 **.DS_Store
+**/chroma

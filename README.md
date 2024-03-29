@@ -36,18 +36,27 @@ RAG bridges the gap by having the retrieval system find relevant information, wh
 
 ## How do I use this app
 
+### Installing Ollama
+
+-   Install `Ollama` by following the instructions given [here](https://ollama.com/).
+-   Start Ollam
+-   a.
+-   Select a query model supported by Ollama from [here](https://ollama.com/library), for e.g., `llama2` or `mistral`.
+-   Start the ollama server with the query model you want to run by running the following command.
+
+```bash
+ollama pull <MODEL-NAME>
+```
+
 ### Starting the backend:
 
 -   Install a python environment manager like [Miniconda](https://docs.anaconda.com/free/miniconda/#quick-command-line-install) by following the steps given in the link.
--   Get an OpenAI API key. Will be given with the project itself.
--   Verify that the key is in the `.env` file in the `backend` folder.
--   It should look something like:
-
-```bash
-OPENAI_API_KEY=sk-...
-```
-
--   Go to the cackend folder in your terminal.
+-   The query model selected earlier from ollama will be needed here.
+-   Select an embeddings model as well. Select any open-source embeddings model from HuggingFace like `hkunlp/instructor-large`.
+-   Create a `.env` file in the `backend` folder.
+-   An example [`.env`](./backend/.env.example) file is provided.
+-   You can select any model that you want to run, not just the ones given here.
+-   Go to the backend folder in your terminal.
 
 ```bash
 cd backend
@@ -120,13 +129,13 @@ https://github.com/bytes2pro/rag-foss/assets/44979866/4fdc4de8-d87f-4f21-8c15-78
 
 ## How is RAG implemented here
 
--   On the server side we use [`AutoLLM`](https://github.com/safevideo/autollm) for generating the embeddings and OpenAI for querying.
--   Various FOSS tools provided by `Langchain` and.`Llama-Index` are used for reading and tokenizing the uploaded documents.
--   These tools are implemented within `AutoLLM`.
--   These documents are then passed on to rthe embedding model.
--   We use the `text-embedding-ada-002` model provided by OpenAI to generate the embeddings.
--   The generated embeddings are stored locally in a [`LanceDB`](https://lancedb.com/) vector database.
--   The querying model used in `GPT-3.5-Turbo` provided by OpenAI.
+-   On the server side we use [`Langchain`](https://python.langchain.com/docs/get_started/introduction) .
+-   Various FOSS tools provided by `Langchain` are used for reading the uploaded documents.
+-   These documents are then passed on to the embedding model.
+-   We use `HuggingFaceEmbeddings` implementation provided by `Langchain` to use any embeddings model available on [`HuggingFace`](https://huggingface.co/).
+-   The generated embeddings are stored locally in a [`Chroma`](https://docs.trychroma.com/getting-started) vector database.
+-   To use an open-source query model locally, we use [`Ollama`](https://ollama.com/).
+-   We select a model from the [list of models](https://ollama.com/library) Ollama provides.
 -   When the model is queried, the query is converted to embeddings and the embeddings are then compared to the ones stored in our vector database.
--   If similar embeddings ar efound, they are passed onto the model along with our original query.
+-   If similar embeddings are found, they are passed onto the model along with our original query.
 -   The model uses this data to generate a response.

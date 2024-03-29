@@ -57,10 +57,12 @@ export default function Home() {
 					<Link
 						rel="noopener noreferrer"
 						target="_blank"
-						href={"https://github.com/safevideo/autollm"}
+						href={
+							"https://python.langchain.com/docs/get_started/introduction"
+						}
 						className="underline"
 					>
-						AutoLLM
+						Langchain
 					</Link>
 				</motion.span>
 			</div>
