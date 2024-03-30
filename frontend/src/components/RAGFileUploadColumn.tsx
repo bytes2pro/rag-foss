@@ -89,7 +89,7 @@ const RAGFileUploadColumn = () => {
 					multiple
 					ref={fileInputRef}
 					type="file"
-					accept=".pdf, .md, .txt, .docx, .xlsx, .csv, .xlsx, .json"
+					accept=".pdf, .md, .txt, .docx, .doc, .xls, .csv, .xlsx, .json, .epub"
 					onChange={handleFileChange}
 					className="border border-gray-200 shadow-sm rounded-lg text-sm focus:ring-none 
 								disabled:opacity-50 disabled:pointer-events-none file:border-0 file:me-4 file:py-2 file:px-4 file:h-full 
@@ -132,8 +132,8 @@ const RAGFileUploadColumn = () => {
 					<div className="h-full bg-orange-50 rounded-xl my-2 border text-center flex">
 						{" "}
 						<span className="m-auto text-md">
-							Only .pdf, .md, .json, .txt, .docx, .xlsx, and .csv
-							are accepted
+							Only .pdf, .md, .json, .txt, .docx, .xlsx, .epub,
+							and .csv are accepted
 						</span>
 					</div>
 				) : (

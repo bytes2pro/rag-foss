@@ -2,4 +2,4 @@
 
 -   fix file type loaders
     -   ~~json~~
-    -   csv
+    -   ~~csv~~

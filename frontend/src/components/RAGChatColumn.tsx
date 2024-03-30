@@ -85,6 +85,7 @@ const RAGChatColumn = () => {
 			<div className="h-fit flex border rounded-xl">
 				<textarea
 					value={userMessage}
+					readOnly={loading}
 					onKeyDown={handleEnterKeyDown}
 					onChange={(e) => setUserMessage(e.target.value)}
 					placeholder="Type your message..."
