@@ -1,6 +1,4 @@
 import os
-import shutil
-from pprint import pprint
 from typing import List
 
 from autollm.utils.markdown_reader import MarkdownReader
@@ -11,6 +9,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores.chroma import Chroma
 from llama_index.readers.file.base import SimpleDirectoryReader
+from utils.utils import get_mime_type
 
 load_dotenv(find_dotenv(filename=".env"))
 
@@ -53,8 +52,7 @@ def load_documents(directory_path: str) -> List[Document]:
 		documents = loader.load_data(show_progress=True)
 		print(f"Loaded {len(documents)} out of {len(os.listdir(directory_path))}")
 		for i in range(len(documents)):
-			if documents[i].metadata['file_name'].endswith("md"):
-				documents[i].metadata['file_type'] = "text/markdown"
+			documents[i].metadata['file_type'] = get_mime_type(documents[i].metadata['file_name'])
 			documents[i] = Document(metadata=documents[i].metadata, page_content=documents[i].text, type= 'Document')
 		return documents
 	except Exception as e:

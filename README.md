@@ -130,8 +130,8 @@ https://github.com/bytes2pro/rag-foss/assets/44979866/4fdc4de8-d87f-4f21-8c15-78
 
 ## How is RAG implemented here
 
--   On the server side we use [`Langchain`](https://python.langchain.com/docs/get_started/introduction) .
--   Various FOSS tools provided by `Langchain` are used for reading the uploaded documents.
+-   On the server side we use [`Langchain`](https://python.langchain.com/docs/get_started/introduction) and [`LlamaIndex`](https://docs.llamaindex.ai/en/stable/).
+-   Tools provided by `LlamaIndex` are used for loading the uploaded documents.
 -   These documents are then passed on to the embedding model.
 -   We use `HuggingFaceEmbeddings` implementation provided by `Langchain` to use any embeddings model available on [`HuggingFace`](https://huggingface.co/).
 -   The generated embeddings are stored locally in a [`Chroma`](https://docs.trychroma.com/getting-started) vector database.
